@@ -10,6 +10,14 @@ function App({ Component, pageProps }) {
       <Component {...pageProps} />
       <SpeedInsights />
       <Analytics />
+      {/* HubSpot Embed Code */}
+      <Script
+        src="//js.hs-scripts.com/45318285.js"
+        id="hs-script-loader"
+        async
+        defer
+        strategy="afterInteractive"
+      />
     </>
   );
 }
