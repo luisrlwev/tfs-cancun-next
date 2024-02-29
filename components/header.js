@@ -1,14 +1,11 @@
-import { useState } from 'react';
 import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next'
 import Image from "next/image";
 import Link from "next/link";
-import { MdMenu } from "react-icons/md";
-import Navegacion from './navegacion';
+import { FaWhatsapp, FaEnvelope, FaInstagram, FaFacebookF } from "react-icons/fa6";
 
 export default function Header() {
-
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
+  const { t } = useTranslation(); // Inicializar el hook useTranslation
   const router = useRouter();
   const { locale, pathname, asPath, query } = router;
 
@@ -16,16 +13,13 @@ export default function Header() {
     <header className="bg-header text-white p-4 sticky top-0 z-40">
       <div className="container mx-auto flex justify-between items-center text-menu text-center font-semibold uppercase">
          {/* ... Logo y botón de menú ... */}
-        <Link href={'/'}>
-          <Image src="/img/logo.svg" alt="Fromsky Logo" width={123} height={70}/>
-        </Link>
+          <Link href={'/'}><Image src="/img/logo.svg" alt="Fromsky Logo" width={123} height={70}/></Link>
         {/* Menú de escritorio */}
-        <nav className="hidden lg:block">
-          <ul className="flex space-x-4">
-            <Navegacion/>
-          </ul>
-        </nav>
-        <div className="hidden lg:flex">
+        <nav className="flex items-center text-white">
+            <p className="uppercase letter-spacing-25 font-normal text-base lg:pr-4 max-lg:hidden">{t('contactanos')}</p>
+            <div className='flex items-center text-xl gap-4 px-4 max-lg:px-2 lg:pr-16'>
+                <a href="mailto:gerenciacancun@fromskyrealtors.com"><FaEnvelope /></a><a href="https://wa.me/529982154121" target='_blank'><FaWhatsapp /></a><a href="https://www.instagram.com/cancunfromskyrealtors/" target='_blank'><FaInstagram/></a><a href="https://www.facebook.com/people/Canc%C3%BAn-Fromsky/61556689523996/" target='_blank'><FaFacebookF/></a>
+            </div>
             {/* Muestra el idioma actual y proporciona enlaces para cambiar */}
             <Link href={{ pathname, query }} as={asPath} locale="es" className={`mr-2 ${locale === 'es' ? 'text-tfs font-bold' : ''}`}>
               ES
@@ -34,20 +28,7 @@ export default function Header() {
             <Link href={{ pathname, query }} as={asPath} locale="en" className={`ml-2 ${locale === 'en' ? 'text-tfs font-bold' : ''}`}>
               EN
             </Link>
-        </div>
-        {/* Botón de menú móvil */}
-        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="inline-flex items-center justify-center p-2 rounded-md text-tfs lg:hidden">
-          <span class="sr-only">Menú</span>
-          <MdMenu className='text-4xl'/>
-        </button>
-        {/* Menú móvil */}
-        {isMobileMenuOpen && (
-          <nav className="absolute top-20 left-0 w-full lg:hidden bg-header z-20">
-            <ul className="flex flex-col items-center gap-3">
-              <Navegacion/>
-            </ul>
-          </nav>
-        )}
+        </nav>
       </div>
     </header>
   );

@@ -8,7 +8,6 @@ export default function Layout({children, title = '', description= ''}) {
         <Head>
             <title>{`${title} - Fromsky Realtors`}</title>
             <meta name="description" content={description}/>
-            <meta name="author" content={"Luis Angel Hernández Castillo"}/>
         </Head>
         <Header/>
         {children}

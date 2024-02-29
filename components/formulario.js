@@ -13,7 +13,6 @@ export default function Formulario({ show, onClose }) {
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [tel, setTel] = useState('');
-  const [sucursal, setSucursal] = useState('');
   const [tipo, setTipo] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [condiciones, setCondiciones] = useState(true);
@@ -49,7 +48,6 @@ export default function Formulario({ show, onClose }) {
     setNombre('');
     setEmail('');
     setTel('');
-    setSucursal('');
     setTipo('');
     setMensaje('');
     setCondiciones(true); // o false, dependiendo de tu caso
@@ -58,7 +56,7 @@ export default function Formulario({ show, onClose }) {
       const respuesta = await fetch('/api/form-modal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, email, tel, sucursal, tipo, mensaje, condiciones, fechaEnvio, horaEnvio, paginaEnvio, formularioOrigen }),
+        body: JSON.stringify({ nombre, email, tel, tipo, mensaje, condiciones, fechaEnvio, horaEnvio, paginaEnvio, formularioOrigen }),
       });
       if (respuesta.ok) {
         console.log("Correo enviado con éxito");
@@ -69,7 +67,6 @@ export default function Formulario({ show, onClose }) {
         setNombre('');
         setEmail('');
         setTel('');
-        setSucursal('');
         setTipo('');
         setMensaje('');
         setCondiciones(true);
@@ -110,18 +107,6 @@ export default function Formulario({ show, onClose }) {
                 </div>
                 <div className="col-span-1">
                   <input type="email" name="email" id="email" placeholder={t('email')} className="w-full rounded-md bg-decimo text-secondary placeholder:text-gray-600 p-2" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                </div>
-                <div className="col-span-1">
-                  <label for="sucursal" class="sr-only">Ciudad de interés</label>
-                  <select name="sucursal" id="sucursal" className="w-full rounded-md bg-decimo text-secondary placeholder:text-gray-600 p-2" value={sucursal} onChange={(e) => setSucursal(e.target.value)} required>
-                      <option value="">{t('selecciona_ciudad')}</option>
-                      <option value="Tulum">Tulum</option>
-                      <option value="Cancún">Cancún</option>
-                      <option value="Los Cabos">Los Cabos</option>
-                      <option value="Mérida">Mérida</option>
-                      <option value="Puerto Vallarta">Puerto Vallarta</option>
-                      <option value="Otra">Otra</option>
-                  </select>
                 </div>
                 <div className="col-span-1">
                   <label for="tipo" class="sr-only">Tipo de unidad</label>

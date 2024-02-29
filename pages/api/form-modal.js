@@ -3,9 +3,9 @@ import nodemailer from 'nodemailer';
 const handler = async (req, res) => {
   try {
   // Tu lógica de envío de correo...
-  const { nombre, email, tel, sucursal, tipo, mensaje, condiciones, fechaEnvio, horaEnvio, paginaEnvio, formularioOrigen } = req.body;
+  const { nombre, email, tel, tipo, mensaje, condiciones, fechaEnvio, horaEnvio, paginaEnvio, formularioOrigen } = req.body;
 
-  let subjectLine = 'Formulario TFS';
+  let subjectLine = 'Franquicia Cancún';
   if (formularioOrigen) {
     subjectLine = `Formulario - ${formularioOrigen}`;
   }
@@ -26,10 +26,10 @@ const handler = async (req, res) => {
   let mailOptions = {
     from: process.env.EMAIL_FROM,
     to: process.env.EMAIL_TO,
-    cc: process.env.EMAIL_CC, // Puedes añadir más correos separados por comas
-    bcc: process.env.EMAIL_BCC, // Puedes añadir más correos separados por comas
+    //cc: process.env.EMAIL_CC, // Puedes añadir más correos separados por comas
+    //bcc: process.env.EMAIL_BCC, // Puedes añadir más correos separados por comas
     subject: subjectLine,
-    text: `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${tel}\nCiudad de interés: ${sucursal}\nTipo de unidad: ${tipo}\nMensaje: ${mensaje}\nCondiciones Aceptadas: ${condiciones}\n----------\nFecha de envio: ${fechaEnvio}\nHora de envio: ${horaEnvio}\nPágina de envio: ${paginaEnvio}`,
+    text: `Nombre: ${nombre}\nEmail: ${email}\nTeléfono: ${tel}\nTipo de unidad: ${tipo}\nMensaje: ${mensaje}\nCondiciones Aceptadas: ${condiciones}\n----------\nFecha de envio: ${fechaEnvio}\nHora de envio: ${horaEnvio}\nPágina de envio: ${paginaEnvio}`,
     // Puedes usar `html` para formatear tu mensaje si lo prefieres
   };
 

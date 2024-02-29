@@ -185,15 +185,6 @@ body {
   transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
 }
 
-.overlay-nosotros-final{
-  background-image: url('../public/img/nosotros/overlar.png');
-  background-position: center left;
-  background-repeat: no-repeat;
-  background-size: auto;
-  opacity: 0.5;
-  transition: background 0.3s, border-radius 0.3s, opacity 0.3s;
-}
-
 .overlay-footer-final{
   background-image: url('../public/img/bg-footer.png');
   background-position: center left;
@@ -201,117 +192,10 @@ body {
   background-size: cover;
 }
 
-.overlay-contacto{
-  background-image: url('../public/img/contacto/overlay.svg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 1;
-}
-
-.overlay-franquicias{
-  background-image: url('../public/img/franquicias/overlay.svg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: auto;
-  opacity: 1;
-}
-
-.portada-tulum{
-  background: url('../public/img/index/portada-riviera-maya.webp') 50% 50%;
-  background-size: cover;
-}
-
-.portada-merida-inicio{
-  background: url('../public/img/index/portada-merida.webp') 50% 50%;
-  background-size: cover;
-}
-
-.portada-cabos-inicio{
-  background: url('../public/img/index/portada-cabos.webp') 50% 50%;
-  background-size: cover;
-}
-
-.portada-depas{
-  background: url('../public/img/departamentos/portada-depas.png') 50% 50%;
-  background-size: cover;
-}
-
-.portada-depas-final{
-  background: url('../public/img/departamentos/portada-depas-final.png') 50% 50%;
-  background-size: cover;
-}
-
-.portada-lotes{
-  background: url('../public/img/lotes/portada-lotes.png') 50% 50%;
-  background-size: cover;
-}
-
-.portada-lotes-final{
-  background: url('../public/img/lotes/portada-lotes-final.png') 50% 50%;
-  background-size: cover;
-}
-
-.portada-casas{
-  background: url('../public/img/casas/portada-casas.png') 50% 50%;
-  background-size: cover;
-}
-
-.portada-casas-final{
-  background: url('../public/img/casas/portada-casas-final.png') 50% 50%;
-  background-size: cover;
-}
-
-.portada-merida{
-  background: url('../public/img/merida/portada-merida.jpeg') 50% 50%;
-  background-attachment: fixed;
-  background-position: 0px -444px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.portada-merida-final{
-  background: url('../public/img/merida/portada-merida-final.jpg') 50% 50%;
-  background-size: cover;
-}
-
-.portada-cabos{
-  background: url('../public/img/cabos/portada-cabos.webp') 50% 50%;
-  background-attachment: fixed;
-  background-position: 0px -84px;
-  background-repeat: no-repeat;
-}
-
-.portada-cabos-final{
-  background: url('../public/img/cabos/portada-cabos-final.webp') 50% 50%;
-  background-size: cover;
-}
-
-.portada-vallarta-inicio{
-  background: url('../public/img/vallarta/portada-vallarta.jpg') 50% 50%;
-  background-attachment: fixed;
-  background-position: 0px -90px;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.portada-vallarta-final{
-  background: url('../public/img/vallarta/video-vallarta.jpg') 50% 50%;
-  background-size: cover;
-}
-
 .portada-cancun-inicio{
   background: url('../public/img/cancun/portada-cancun.jpg') 50% 50%;
   background-attachment: fixed;
   background-position: 0px 20px;
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-.portada-tulum-inicio{
-  background: url('../public/img/tulum/portada-tulum.jpg') 50% 50%;
-  background-attachment: fixed;
-  background-position: 0px -380px;
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -327,44 +211,6 @@ body {
 .portada-franquicias-cancun-final{
   background: url('../public/img/cancun/video-franquicias-cancun.jpg') 50% 50%;
   background-size: cover;
-}
-
-.portada-construccion{
-  background: url('../public/img/construccion/portada-construccion.png') 50% 50%;
-  background-repeat: no-repeat;
-}
-
-.portada-construccion-final{
-  background: url('../public/img/construccion/portada-construccion-final.jpg') 50% 50%;
-  background-size: cover;
-  background-attachment: fixed;
-}
-
-.portada-nosotros{
-  background: url('../public/img/nosotros/portada-nosotros.jpg') 50% 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-}
-
-.portada-nosotros-final{
-  background: url('../public/img/nosotros/portada-nosotros-final.jpg') 50% 50%;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.portada-franquicias-final{
-  background: url('../public/img/franquicias/fondo-franquicias.jpg') 50% 50%;
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.portada-blog-fondo{
-  background: url('../public/img/blog/portada-blog.jpg.webp') 50% 50%;
-  background-repeat: no-repeat;
 }
 
 .video-fondo{

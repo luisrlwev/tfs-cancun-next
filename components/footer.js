@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import PhoneInput from 'react-phone-number-input';
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebookF, FaYoutube, FaInstagram, FaXTwitter, FaPinterestP, FaTiktok, FaLinkedinIn, FaWhatsapp } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import 'react-phone-number-input/style.css';
 
 export default function Footer() {
@@ -12,7 +12,6 @@ export default function Footer() {
   const [nombre, setNombre] = useState('');
   const [email, setEmail] = useState('');
   const [tel, setTel] = useState('');
-  const [sucursal, setSucursal] = useState('');
   const [tipo, setTipo] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [condiciones, setCondiciones] = useState(true);
@@ -48,7 +47,6 @@ export default function Footer() {
     setNombre('');
     setEmail('');
     setTel('');
-    setSucursal('');
     setTipo('');
     setMensaje('');
     setCondiciones(true); // o false, dependiendo de tu caso
@@ -57,7 +55,7 @@ export default function Footer() {
       const respuesta = await fetch('/api/form-modal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nombre, email, tel, sucursal, tipo, mensaje, condiciones, fechaEnvio, horaEnvio, paginaEnvio, formularioOrigen }),
+        body: JSON.stringify({ nombre, email, tel, tipo, mensaje, condiciones, fechaEnvio, horaEnvio, paginaEnvio, formularioOrigen }),
       });
       if (respuesta.ok) {
         console.log("Correo enviado con éxito");
@@ -68,7 +66,6 @@ export default function Footer() {
         setNombre('');
         setEmail('');
         setTel('');
-        setSucursal('');
         setTipo('');
         setMensaje('');
         setCondiciones(true);
@@ -93,18 +90,11 @@ export default function Footer() {
       <div className="py-10 overlay-footer-final">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-3 container mx-auto">
           <div className="grid justify-center items-center">
-            <Link href={'/'} className="h-max pb-10"><Image src={'/img/logo.svg'} width={354} height={201} alt="Logo TFS"/></Link>
-            <div className="flex justify-center align-center text-tfs h-max max-lg:pb-8">
-              <a href="https://wa.me/529848035450" className="flex items-center w-fit h-fit hover"><FaWhatsapp className="mr-3 text-3xl"/> +52 (984) 803 5450</a>
-            </div>
-            <div className="grid grid-cols-7 justify-items-center text-tfs text-3xl h-max pb-8 lg:pb-0">
-              <a href="https://www.facebook.com/FromskyRealtors/" target="_blank" aria-label="Facebook"><FaFacebookF className="hover"/></a>
-              <a href="https://www.instagram.com/fromskyrealtors/" target="_blank" aria-label="Instagram"><FaInstagram className="hover"/></a>
-              <a href="https://www.tiktok.com/@fromskyrealtors" target="_blank" aria-label="TikTok"><FaTiktok className="hover"/></a>
-              <a href="https://twitter.com/FromskyTulum" target="_blank" aria-label="Twitter"><FaXTwitter className="hover"/></a>
-              <a href="https://www.pinterest.com.mx/FromskyRealtors/" target="_blank" aria-label="Pinterest"><FaPinterestP className="hover"/></a>
-              <a href="https://www.linkedin.com/company/fromskyrealtors/" target="_blank" aria-label="LinkedIn"><FaLinkedinIn className="hover"/></a>
-              <a href="https://www.youtube.com/@fromskyrealtors" target="_blank" aria-label="YouTube"><FaYoutube className="hover"/></a>
+            <Link className="h-max max-lg:pb-10" href={'/'}><Image src={'/img/logo.svg'} width={354} height={201} alt="Logo TFS"/></Link>
+            <div className="flex justify-center items-center gap-3 text-tfs h-max max-lg:pb-8">
+              <a href="https://www.instagram.com/cancunfromskyrealtors/" target="_blank" aria-label="Instagram"><FaInstagram className="hover text-3xl"/></a>
+              <a href="https://www.facebook.com/people/Canc%C3%BAn-Fromsky/61556689523996/" target="_blank" aria-label="Facebook"><FaFacebookF className="hover text-3xl"/></a>
+              <a href="https://wa.me/529982154121" className="flex items-center w-fit h-fit hover" target='_blank'><FaWhatsapp className="mr-3 text-3xl"/> +52 (998) 215 4121</a>
             </div>
           </div>
           <div>
@@ -118,20 +108,8 @@ export default function Footer() {
                   <PhoneInput international type="tel" name="tel" id="tel" placeholder={t('telefono')} className="w-full bg-transparent border-b text-white p-3" value={tel} onChange={setTel} required/>
                   <p className='text-white text-sm italic'>{t('leyenda_tel')}</p>
                 </div>
-                <div className="lg:col-span-2">
-                  <input type="email" name="email" id="email" placeholder="Email" className="w-full bg-transparent border-b text-white p-3" value={email} onChange={(e) => setEmail(e.target.value)} required/>
-                </div>
                 <div>
-                  <label for="sucursal" class="sr-only">Ciudad de interés</label>
-                  <select name="sucursal" id="sucursal" className="w-full bg-transparent border-b text-white p-3" value={sucursal} onChange={(e) => setSucursal(e.target.value)} required>
-                    <option value="">{t('selecciona_ciudad')}</option>
-                    <option value="Tulum">Tulum</option>
-                    <option value="Cancún">Cancún</option>
-                    <option value="Los Cabos">Los Cabos</option>
-                    <option value="Mérida">Mérida</option>
-                    <option value="Puerto Vallarta">Puerto Vallarta</option>
-                    <option value="Otra">Otra</option>
-                </select>
+                  <input type="email" name="email" id="email" placeholder="Email" className="w-full bg-transparent border-b text-white p-3" value={email} onChange={(e) => setEmail(e.target.value)} required/>
                 </div>
                 <div>
                   <label for="tipo" class="sr-only">Tipo de unidad</label>
