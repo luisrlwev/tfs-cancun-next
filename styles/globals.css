@@ -85,7 +85,7 @@ body {
 }
 
 .bg-modal{
-  background-color: #fdf5f1;
+  background-color: #fff;
 }
 
 .bg-galeria{
@@ -210,6 +210,11 @@ body {
 
 .portada-franquicias-cancun-final{
   background: url('../public/img/cancun/video-franquicias-cancun.jpg') 50% 50%;
+  background-size: cover;
+}
+
+.bg-modal-img{
+  background: url('../public/img/portada-modal.jpg') 40%;
   background-size: cover;
 }
 

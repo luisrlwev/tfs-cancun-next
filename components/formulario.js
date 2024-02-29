@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next'
 import PhoneInput from 'react-phone-number-input';
 import Link from "next/link";
 import Image from "next/image";
-import { FaXmark } from "react-icons/fa6";
+import { FaXmark, FaFacebookF, FaInstagram, FaWhatsapp } from "react-icons/fa6";
 import 'react-phone-number-input/style.css';
 
 export default function Formulario({ show, onClose }) {
@@ -92,25 +92,25 @@ export default function Formulario({ show, onClose }) {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 overflow-y-auto h-full w-full z-50" onClick={onClose}>
-      <div className="grid grid-cols-2 max-lg:grid-cols-1 relative top-40 max-lg:top-10 mx-auto p-5 border w-modal shadow-lg bg-modal" onClick={e => e.stopPropagation()}>
+      <div className="grid grid-cols-2 max-lg:grid-cols-1 relative top-40 max-lg:top-10 mx-auto border w-modal shadow-lg bg-modal" onClick={e => e.stopPropagation()}>
         <button onClick={onClose} className="absolute top-0 right-0 mt-2 mr-2"><FaXmark className="text-2xl text-red-600"/></button>
-        <div className="p-4">
-            <h2 className='uppercase text-4xl text-secondary font-bold letter-spacing-25 text-center pb-3'>{t('dudas')}</h2>
+        <div className="p-8">
+            <h2 className='uppercase text-2xl text-black font-bold letter-spacing-25 text-center pb-3'>{t('dudas')}</h2>
             <form className="w-full max-lg:pb-8 text-black" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 gap-3">
                 <div className="col-span-1">
-                  <input type="text" name="nombre" id="nombre" placeholder={t('nombre_completo')} className="w-full rounded-md bg-decimo text-secondary placeholder:text-gray-600 p-2" value={nombre} onChange={(e) => setNombre(e.target.value)} required/>
+                  <input type="text" name="nombre" id="nombre" placeholder={t('nombre_completo')} className="w-full border-b-2 text-secondary placeholder:text-gray-600 p-2" value={nombre} onChange={(e) => setNombre(e.target.value)} required/>
                 </div>
                 <div className="col-span-1">
-                  <PhoneInput international type="tel" name="tel" id="tel" placeholder={t('telefono_completo')} className="w-full rounded-md bg-decimo text-secondary placeholder:text-gray-600 p-2" value={tel} onChange={setTel} required/>
+                  <PhoneInput international type="tel" name="tel" id="tel" placeholder={t('telefono_completo')} className="w-full border-b-2 text-secondary placeholder:text-gray-600 p-2" value={tel} onChange={setTel} required/>
                   <p className='text-secondary text-sm italic'>{t('leyenda_tel')}</p>
                 </div>
                 <div className="col-span-1">
-                  <input type="email" name="email" id="email" placeholder={t('email')} className="w-full rounded-md bg-decimo text-secondary placeholder:text-gray-600 p-2" value={email} onChange={(e) => setEmail(e.target.value)} required/>
+                  <input type="email" name="email" id="email" placeholder={t('email')} className="w-full border-b-2 text-secondary placeholder:text-gray-600 p-2" value={email} onChange={(e) => setEmail(e.target.value)} required/>
                 </div>
                 <div className="col-span-1">
                   <label for="tipo" class="sr-only">Tipo de unidad</label>
-                  <select name="tipo" id="tipo" className="w-full rounded-md bg-decimo text-secondary placeholder:text-gray-600 p-2" value={tipo} onChange={(e) => setTipo(e.target.value)} required>
+                  <select name="tipo" id="tipo" className="w-full border-b-2 text-secondary placeholder:text-gray-600 p-2" value={tipo} onChange={(e) => setTipo(e.target.value)} required>
                       <option value="">{t('tipo_unidad')}</option>
                       <option value="Departamento">{t('departamento')}</option>
                       <option value="Casa">{t('casa')}</option>
@@ -118,7 +118,7 @@ export default function Formulario({ show, onClose }) {
                   </select>
                 </div>
                 <div className="col-span-1">
-                  <textarea name="mensaje" id="mensaje" cols="30" rows="2" placeholder={t('tipo_propiedad')} className="w-full rounded-md bg-decimo text-secondary placeholder:text-gray-600 p-2" value={mensaje} onChange={(e) => setMensaje(e.target.value)} required></textarea>
+                  <textarea name="mensaje" id="mensaje" cols="30" rows="2" placeholder={t('tipo_propiedad')} className="w-full border-b-2 text-secondary placeholder:text-gray-600 p-2" value={mensaje} onChange={(e) => setMensaje(e.target.value)} required></textarea>
                 </div>
                 <div className="text-secondary">
                   <input type="checkbox" name="condiciones" id="condiciones" aria-label='condiciones' checked={condiciones} onChange={handleCheckboxChange} required/> {t('acepto')} <Link href="/aviso-de-privacidad" className="text-tfs hover">{t('terminos')}</Link>
@@ -130,19 +130,29 @@ export default function Formulario({ show, onClose }) {
                   <input type="hidden" name="paginaEnvio" value={paginaEnvio} />
                   <input type="hidden" name="formularioOrigen" value={formularioOrigen}/>
                 </div>
-                <div className="text-center col-span-1">
+                <div className="text-center col-span-1 mt-6">
                   {mensajeRespuesta && (
                     <p className={`${esExito ? "text-green-600" : "text-red-600"} pb-2`}>
                       {mensajeRespuesta}
                     </p>
                   )}
-                  <input type="submit" name="submit" id="submit" value={t('enviar')} disabled={isSubmitting} className="py-2 px-12 bg-tfs uppercase text-tercero font-bold letter-spacing-25 rounded-md hover-bg cursor-pointer"/>
+                  <input type="submit" name="submit" id="submit" value={t('enviar')} disabled={isSubmitting} className="py-2 px-12 bg-tfs uppercase text-white font-bold letter-spacing-25 hover-bg cursor-pointer"/>
                 </div>
               </div>
             </form>
         </div>
-        <div className="flex max-lg:hidden">
-            <Image src={'/img/portada-modal.webp'} width={415} height={490} alt="imagen modal" />
+        <div className="flex flex-col items-center justify-between max-lg:hidden bg-modal-img">
+          <Image src="/img/cancun/cancun.png" alt="Cancún" className='h-fit pt-6' width={352} height={106} />
+          <div className='flex justify-between border-b-2 border-white mb-5 pb-1 w-10/12'>
+            <div>
+              <p className='text-white uppercase letter-spacing-25 font-semibold'>Encuéntranos</p>
+            </div>
+            <div className='flex text-white gap-4'>
+              <a href="https://www.instagram.com/cancunfromskyrealtors/" target="_blank" aria-label="Instagram"><FaInstagram className="text-xl"/></a>
+              <a href="https://www.facebook.com/people/Canc%C3%BAn-Fromsky/61556689523996/" target="_blank" aria-label="Facebook"><FaFacebookF className="text-xl"/></a>
+              <a href="https://wa.me/529982154121" className="flex items-center w-fit h-fit hover" target='_blank'><FaWhatsapp className="text-xl"/></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
