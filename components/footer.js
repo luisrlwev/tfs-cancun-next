@@ -94,7 +94,7 @@ export default function Footer() {
             <div className="flex justify-center items-center gap-3 text-tfs h-max max-lg:pb-8">
               <a href="https://www.instagram.com/cancunfromskyrealtors/" target="_blank" aria-label="Instagram"><FaInstagram className="hover text-3xl"/></a>
               <a href="https://www.facebook.com/people/Canc%C3%BAn-Fromsky/61556689523996/" target="_blank" aria-label="Facebook"><FaFacebookF className="hover text-3xl"/></a>
-              <a href="https://wa.me/529932216953" className="flex items-center w-fit h-fit hover" target='_blank'><FaWhatsapp className="mr-3 text-3xl"/> +52 (993) 221 6953</a>
+              <a href="https://wa.me/529982154121" className="flex items-center w-fit h-fit hover" target='_blank'><FaWhatsapp className="mr-3 text-3xl"/> +52 (998) 215 4121</a>
             </div>
           </div>
           <div>
